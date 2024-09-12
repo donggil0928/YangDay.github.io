@@ -1,0 +1,93 @@
+<html lang="en"><head>
+</head>
+
+<body id="bodyTag" style="background: white;">
+<div style="position: relative;" id="embedContainer">
+    <div style="position: absolute; top: 0; right: 0; z-index: 100;"></div>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'NelnaLizzyChae';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/NelnaLizzyChae.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            background-color: #a0a0a0; /* 전체 배경색을 회색으로 설정 */
+            margin: 0; /* 기본 여백 제거 */
+            padding: 0; /* 기본 패딩 제거 */
+            display: flex; /* 중앙 정렬을 위해 flex 사용 */
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: center; /* 세로 중앙 정렬 */
+            height: 100vh; /* 전체 화면 높이 사용 */
+            font-family: 'NelnaLizzyChae', cursive; /* Press Start 2P 폰트 사용 */
+        }
+
+        #timer {
+            color: #eeeeee;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2vw; /* 뷰포트 너비의 2%로 텍스트 크기 설정 */
+            letter-spacing: 0.5vw; /* 뷰포트 너비의 0.5%로 글자 간격 설정 */
+        }
+
+        .days {
+            display: inline-block;
+            padding: 10vw; /* 뷰포트 너비의 5%로 패딩 설정 */
+            border-radius: 5px;
+            background: #5EB8ED; /* 배경색 설정 */
+        }
+
+        .numbers {
+            color: #ffffff;
+            font-size: 12vw; /* 뷰포트 너비의 5%로 텍스트 크기 설정 */
+            text-align: center;
+            display: inline-block; /* 한 줄에 표시되도록 설정 */
+            position: relative; /* 위치 조정을 위한 relative 설정 */
+            //top: 3px; /* 글씨를 3픽셀 내리기 */
+        }
+    </style>
+    <title>Countdown Timer</title>
+
+    <div id="timer">
+        <div class="days">
+            <div id="days" class="numbers"></div> <!-- 날짜가 한 줄에 표시되도록 수정 -->
+        </div>
+    </div>
+
+    <script>
+        const myDate = new Date('Jun 23, 2024 00:00:00');
+
+        let timer = setInterval(function() {
+            const today = new Date().getTime();
+            let days = Math.floor(Math.abs((today - myDate) / (1000 * 60 * 60 * 24))) + 1; // 1일 추가하여 6월 23일이 1일이 되도록 설정
+            document.getElementById("days").innerHTML = `⋅˚₊ଳ + ${days}‧₊˚`; // '♥ + 73' 형식으로 표시
+        }, 1000);
+    </script>
+
+</div>
+<script type="text/javascript" charset="utf-8">
+    (function() {
+        function getInitialColorMode() {
+            const mql = window.matchMedia('(prefers-color-scheme: dark)');
+            const hasMediaQueryPreference = typeof mql.matches === 'boolean';
+            if (hasMediaQueryPreference) {
+                return mql.matches ? 'dark' : 'light';
+            }
+            return 'light';
+        }
+        if ('light' === 'default') {
+            if (getInitialColorMode() === 'light') {
+                document.body.style.background = "white";
+            } else {
+                document.body.style.background = "rgb(25, 25, 25)";
+            }
+        } else {
+            document.body.style.background = "white";
+        }
+    })()
+</script>
+
+</body></html>
